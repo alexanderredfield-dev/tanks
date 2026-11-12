@@ -107,6 +107,21 @@
   }
   .tag.warn { background: #fde7c4; color: #7a4a00; }
   .tag.gap { background: #eeeeee; color: #555; }
+  details { margin-top: 6px; }
+  details summary {
+    cursor: pointer;
+    color: var(--accent);
+    font-size: 13px;
+  }
+  details[open] summary { margin-bottom: 6px; }
+  .detail {
+    background: #ffffff;
+    border: 1px dashed var(--line);
+    padding: 8px 10px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .detail div { margin: 3px 0; }
   footer {
     margin-top: 48px;
     padding-top: 14px;
@@ -119,6 +134,8 @@
     h2 { page-break-after: avoid; }
     table { page-break-inside: auto; }
     tr { page-break-inside: avoid; }
+    details > summary { display: none; }
+    details .detail { display: block; }
   }
 </style>
 </head>
@@ -130,7 +147,6 @@
   <p class="subtitle">Renewal calendar and license terms for the six marine petroleum terminals in South Portland, Maine. Compiled from public Maine DEP, EPA, and City of South Portland records. Status as of November 11, 2026.</p>
 </header>
 
-
 <h2>Facility registers</h2>
 
 <h3>1. Portland Pipe Line Corp. (PPLC), 30 Hill St</h3>
@@ -140,28 +156,67 @@
   </thead>
   <tbody>
     <tr>
-      <td>Part 70 air license A-197-70-H-R</td>
+      <td>
+        Major air pollution operating permit (Title V)
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> Part 70 air emission license A-197-70-H-R</div>
+            <div><strong>Issued by:</strong> Maine DEP, Bureau of Air Quality</div>
+            <div><strong>What it is:</strong> Federal Clean Air Act operating permit that applies to facilities with large potential air emissions.</div>
+            <div><strong>Term:</strong> Five years. Renewal application due 6 to 18 months before expiration.</div>
+          </div>
+        </details>
+      </td>
       <td>Feb 24, 2025</td>
       <td>Feb 24, 2030 <span class="calc">(calc.)</span></td>
       <td>Aug 24, 2028 to Aug 24, 2029 <span class="calc">(calc.)</span></td>
       <td>Stated: "five (5) years." <a href="https://mobile.maine.gov/dep/ftp/AIR/licenses/titlev/A0197HR.pdf">PDF</a></td>
     </tr>
     <tr>
-      <td>MEPDES ME0021440 / WDL W002651-5S-G-R</td>
+      <td>
+        Wastewater discharge permit (stormwater and test water)
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> MEPDES permit ME0021440 / Waste Discharge License W002651-5S-G-R</div>
+            <div><strong>Issued by:</strong> Maine DEP</div>
+            <div><strong>What it is:</strong> Maine's version of the federal Clean Water Act discharge permit, covering discharges to surface water.</div>
+            <div><strong>Term:</strong> Five years. A timely renewal keeps the existing permit in effect until DEP decides.</div>
+          </div>
+        </details>
+      </td>
       <td>Aug 21, 2020</td>
-      <td>Aug 21, 2025 <span class="calc">(calc.)</span>; <span class="tag warn">administratively continued</span></td>
+      <td>Aug 21, 2025 <span class="calc">(calc.)</span>; <span class="tag warn">still in effect while renewal is pending</span></td>
       <td>Filed Aug 4, 2025 (pending)</td>
       <td>DEP's 2025 status report says expired licenses stay in effect if a timely renewal is filed. <a href="https://www.maine.gov/dep/projects/portlandpipe/index.html">DEP</a></td>
     </tr>
     <tr>
-      <td>Chapter 600 O-000305-91-I-R and O-000306-91-I-R</td>
+      <td>
+        Marine oil terminal operating license
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> Chapter 600 licenses O-000305-91-I-R (Pier 1 and Front St tanks) and O-000306-91-I-R (Pier 2, Preble St tanks, 19 tanks at 30 Hill St)</div>
+            <div><strong>Issued by:</strong> Maine DEP, Division of Petroleum Management</div>
+            <div><strong>What it is:</strong> State license required to operate a marine oil terminal (38 M.R.S. §545).</div>
+            <div><strong>Term:</strong> At least 12 months, no more than 60 months.</div>
+          </div>
+        </details>
+      </td>
       <td>Not published</td>
-      <td>Not published (60-month maximum)</td>
+      <td>Not published</td>
       <td>Accepted Aug 11, 2025 (pending)</td>
       <td><a href="https://www.maine.gov/dep/projects/portlandpipe/index.html">DEP</a></td>
     </tr>
     <tr>
-      <td>City site-plan approval (Pier 2 flow reversal, 2009)</td>
+      <td>
+        City land-use approval (site plan)
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Issued by:</strong> City of South Portland Planning Board</div>
+            <div><strong>What it is:</strong> City approval for the layout and use of the site. This approval covered Pier 2 flow-reversal work.</div>
+            <div><strong>Status:</strong> Expired 2012, because the approved work was not carried out within the approval period.</div>
+          </div>
+        </details>
+      </td>
       <td>2009</td>
       <td>Expired 2012</td>
       <td>n/a</td>
@@ -177,21 +232,50 @@
   </thead>
   <tbody>
     <tr>
-      <td>Ch. 115 air license A-179-71-P-R/M</td>
+      <td>
+        Air emissions license (minor source)
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> Ch. 115 air emission license A-179-71-P-R/M</div>
+            <div><strong>Issued by:</strong> Maine DEP, Bureau of Air Quality</div>
+            <div><strong>What it is:</strong> State air license for facilities below the Title V threshold (06-096 CMR ch. 115).</div>
+            <div><strong>Term:</strong> Ten years. Amendments R-M (Jun 29, 2021) and S-A (Apr 30, 2025) run concurrently.</div>
+          </div>
+        </details>
+      </td>
       <td>Mar 2, 2018</td>
       <td>Mar 2, 2028 <span class="calc">(calc.)</span></td>
       <td>Not verified</td>
-      <td>Stated: "ten (10) years." Amendments R-M (Jun 29, 2021) and S-A (Apr 30, 2025) run concurrently. <a href="https://www.maine.gov/dep/ftp/AIR/licenses/ch115/A0179PRM.pdf">PDF</a></td>
+      <td>Stated: "ten (10) years." <a href="https://www.maine.gov/dep/ftp/AIR/licenses/ch115/A0179PRM.pdf">PDF</a></td>
     </tr>
     <tr>
-      <td>MEPDES ME0001821 / WDL W000886-5S-J-R</td>
+      <td>
+        Wastewater discharge permit (stormwater and test water)
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> MEPDES permit ME0001821 / Waste Discharge License W000886-5S-J-R</div>
+            <div><strong>Issued by:</strong> Maine DEP</div>
+            <div><strong>What it is:</strong> Maine's version of the federal Clean Water Act discharge permit, covering discharges to surface water.</div>
+            <div><strong>Term:</strong> Five years.</div>
+          </div>
+        </details>
+      </td>
       <td>Dec 21, 2023 (signature)</td>
       <td>Dec 21, 2028 <span class="calc">(calc.)</span></td>
       <td>Jun 24, 2028 <span class="calc">(calc., 180 days)</span></td>
       <td>Stated: "five (5) years." <a href="https://www.epa.gov/system/files/documents/2025-06/finalme0001821permit-2023.pdf">PDF</a></td>
     </tr>
     <tr>
-      <td>Chapter 600 license</td>
+      <td>
+        Marine oil terminal operating license
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> Chapter 600 license (number not found)</div>
+            <div><strong>Issued by:</strong> Maine DEP, Division of Petroleum Management</div>
+            <div><strong>What it is:</strong> State license required to operate a marine oil terminal (38 M.R.S. §545).</div>
+          </div>
+        </details>
+      </td>
       <td>Not found</td>
       <td>Not found</td>
       <td>Not found</td>
@@ -207,21 +291,51 @@
   </thead>
   <tbody>
     <tr>
-      <td>MEPDES ME0000485 / WDL W002653-5S-J-R</td>
+      <td>
+        Wastewater discharge permit (stormwater and tank-bottom water)
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> MEPDES permit ME0000485 / Waste Discharge License W002653-5S-J-R</div>
+            <div><strong>Issued by:</strong> Maine DEP</div>
+            <div><strong>What it is:</strong> Maine's version of the federal Clean Water Act discharge permit, covering discharges to surface water. Also covers treated tank-bottom water and hydrostatic test water.</div>
+            <div><strong>Term:</strong> Five years.</div>
+          </div>
+        </details>
+      </td>
       <td>Mar 4, 2026 (signature; fact sheet Feb 25)</td>
       <td>Mar 4, 2031 <span class="calc">(calc.)</span></td>
       <td>Sep 5, 2030 <span class="calc">(calc.)</span></td>
       <td>Stated: "five (5) years." <a href="https://www.epa.gov/system/files/documents/2026-03/finalme0000485permit-2026.pdf">PDF</a></td>
     </tr>
     <tr>
-      <td>Part 70 air license A-282-70-G-R</td>
+      <td>
+        Major air pollution operating permit (Title V)
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> Part 70 air emission license A-282-70-G-R (amendment H-A, Oct 31, 2016, runs concurrently)</div>
+            <div><strong>Issued by:</strong> Maine DEP, Bureau of Air Quality</div>
+            <div><strong>What it is:</strong> Federal Clean Air Act operating permit for major sources (06-096 CMR ch. 140).</div>
+            <div><strong>Term:</strong> Five years. No renewal found. A timely renewal would keep this license in effect until DEP acts.</div>
+          </div>
+        </details>
+      </td>
       <td>Dec 11, 2015</td>
       <td>Dec 11, 2020 <span class="calc">(calc.)</span>; <span class="tag warn">status unconfirmed</span></td>
       <td>Jun 11, 2019 to Jun 11, 2020 <span class="calc">(calc.)</span>; no filing found</td>
-      <td>Stated: "five (5) years." H-A amendment (Oct 31, 2016) concurrent. <a href="https://www.maine.gov/dep/ftp/AIR/licenses/titlev/A0282GR.pdf">PDF</a></td>
+      <td>Stated: "five (5) years." <a href="https://www.maine.gov/dep/ftp/AIR/licenses/titlev/A0282GR.pdf">PDF</a></td>
     </tr>
     <tr>
-      <td>Chapter 600 O-00304-91-H-R</td>
+      <td>
+        Marine oil terminal operating license
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> Chapter 600 license O-00304-91-H-R (predecessor)</div>
+            <div><strong>Issued by:</strong> Maine DEP, Division of Petroleum Management</div>
+            <div><strong>What it is:</strong> State license required to operate a marine oil terminal (38 M.R.S. §545).</div>
+            <div><strong>Status:</strong> Expired Feb 12, 2021. Renewal application filed Feb 2021. Successor license not found.</div>
+          </div>
+        </details>
+      </td>
       <td>Predecessor license</td>
       <td>Feb 12, 2021 (stated in application); <span class="tag warn">successor not found</span></td>
       <td>Renewal filed Feb 2021</td>
@@ -237,21 +351,50 @@
   </thead>
   <tbody>
     <tr>
-      <td>Ch. 115 air license A-432-71-S-R/M</td>
+      <td>
+        Air emissions license (minor source)
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> Ch. 115 air emission license A-432-71-S-R/M</div>
+            <div><strong>Issued by:</strong> Maine DEP, Bureau of Air Quality</div>
+            <div><strong>What it is:</strong> State air license for facilities below the Title V threshold (06-096 CMR ch. 115). DEP's 2024 fenceline report confirms this as the operating license.</div>
+            <div><strong>Term:</strong> Ten years.</div>
+          </div>
+        </details>
+      </td>
       <td>Dec 5, 2023</td>
       <td>Dec 5, 2033 <span class="calc">(calc.)</span></td>
       <td>Not verified</td>
-      <td>Stated: "ten (10) years." DEP's 2024 fenceline report confirms S-R/M as the operating license. <a href="https://www.maine.gov/dep/ftp/AIR/licenses/ch115/A0432SRM.pdf">PDF</a></td>
+      <td>Stated: "ten (10) years." <a href="https://www.maine.gov/dep/ftp/AIR/licenses/ch115/A0432SRM.pdf">PDF</a></td>
     </tr>
     <tr>
-      <td>MEPDES ME0001775 / WDL W002565-5S-K-R</td>
+      <td>
+        Wastewater discharge permit (stormwater and test water)
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> MEPDES permit ME0001775 / Waste Discharge License W002565-5S-K-R</div>
+            <div><strong>Issued by:</strong> Maine DEP</div>
+            <div><strong>What it is:</strong> Maine's version of the federal Clean Water Act discharge permit, covering discharges to surface water.</div>
+            <div><strong>Term:</strong> Five years.</div>
+          </div>
+        </details>
+      </td>
       <td>Sep 13, 2022</td>
       <td>Sep 13, 2027 <span class="calc">(calc.)</span></td>
       <td>Mar 17, 2027 <span class="calc">(calc., 180 days)</span></td>
       <td>Stated: "five (5) years." <a href="https://www.epa.gov/system/files/documents/2025-06/finalme0001775permit-2022.pdf">PDF</a></td>
     </tr>
     <tr>
-      <td>Chapter 600 license</td>
+      <td>
+        Marine oil terminal operating license
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> Chapter 600 license (number not found)</div>
+            <div><strong>Issued by:</strong> Maine DEP, Division of Petroleum Management</div>
+            <div><strong>What it is:</strong> State license required to operate a marine oil terminal (38 M.R.S. §545).</div>
+          </div>
+        </details>
+      </td>
       <td>Not found</td>
       <td>Not found</td>
       <td>Not found</td>
@@ -267,21 +410,50 @@
   </thead>
   <tbody>
     <tr>
-      <td>Part 70 air license A-460-70-H-R</td>
+      <td>
+        Major air pollution operating permit (Title V)
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> Part 70 air emission license A-460-70-H-R</div>
+            <div><strong>Issued by:</strong> Maine DEP, Bureau of Air Quality</div>
+            <div><strong>What it is:</strong> Federal Clean Air Act operating permit for major sources (06-096 CMR ch. 140).</div>
+            <div><strong>Term:</strong> Five years assumed. Not yet confirmed from the license text.</div>
+          </div>
+        </details>
+      </td>
       <td>Nov 5, 2025 (effective)</td>
       <td>Nov 5, 2030 <span class="calc">(calc.)</span></td>
       <td>May 5, 2029 to May 5, 2030 <span class="calc">(calc.)</span></td>
       <td><span class="tag warn">Inferred</span> 5-year Part 70 term assumed; not yet read from license text. <a href="https://www.maine.gov/tools/whatsnew/index.php?topic=DEP%20Title%20V">DEP list</a></td>
     </tr>
     <tr>
-      <td>MEPDES ME0002291 / WDL W000637-5S-J-R</td>
+      <td>
+        Wastewater discharge permit (stormwater and test water)
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> MEPDES permit ME0002291 / Waste Discharge License W000637-5S-J-R</div>
+            <div><strong>Issued by:</strong> Maine DEP</div>
+            <div><strong>What it is:</strong> Maine's version of the federal Clean Water Act discharge permit, covering discharges to surface water.</div>
+            <div><strong>Term:</strong> Five years assumed; signature date not verified.</div>
+          </div>
+        </details>
+      </td>
       <td>Feb 5, 2026 (fact sheet and letter date)</td>
       <td>Feb 5, 2031 <span class="calc">(calc.)</span></td>
       <td>Aug 9, 2030 <span class="calc">(calc.)</span></td>
       <td><span class="tag warn">Inferred</span> 5-year term assumed; signature date not verified. <a href="https://www.epa.gov/system/files/documents/2026-02/finalme0002291permit-2026.pdf">EPA</a></td>
     </tr>
     <tr>
-      <td>Chapter 600 license</td>
+      <td>
+        Marine oil terminal operating license
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> Chapter 600 license (number not found)</div>
+            <div><strong>Issued by:</strong> Maine DEP, Division of Petroleum Management</div>
+            <div><strong>What it is:</strong> State license required to operate a marine oil terminal (38 M.R.S. §545).</div>
+          </div>
+        </details>
+      </td>
       <td>Not found</td>
       <td>Not found</td>
       <td>Not found</td>
@@ -297,21 +469,51 @@
   </thead>
   <tbody>
     <tr>
-      <td>Ch. 115 air license A-390-71-P-R/M</td>
+      <td>
+        Air emissions license (minor source)
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> Ch. 115 air emission license A-390-71-P-R/M</div>
+            <div><strong>Issued by:</strong> Maine DEP, Bureau of Air Quality</div>
+            <div><strong>What it is:</strong> State air license for facilities below the Title V threshold (06-096 CMR ch. 115).</div>
+            <div><strong>Term:</strong> Ten years. Transferred to Portland Terminals on Jul 29, 2024.</div>
+          </div>
+        </details>
+      </td>
       <td>Feb 22, 2023</td>
       <td>Feb 22, 2033 <span class="calc">(calc.)</span></td>
       <td>Not verified</td>
-      <td>Stated: "ten (10) years." Transferred to Portland Terminals Jul 29, 2024. <a href="https://www.maine.gov/dep/ftp/AIR/licenses/ch115/A0390PRM.pdf">PDF</a></td>
+      <td>Stated: "ten (10) years." <a href="https://www.maine.gov/dep/ftp/AIR/licenses/ch115/A0390PRM.pdf">PDF</a></td>
     </tr>
     <tr>
-      <td>MEPDES ME0022314 / WDL W000737-5S-N-R</td>
+      <td>
+        Wastewater discharge permit (stormwater and test water)
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> MEPDES permit ME0022314 / Waste Discharge License W000737-5S-N-R</div>
+            <div><strong>Issued by:</strong> Maine DEP</div>
+            <div><strong>What it is:</strong> Maine's version of the federal Clean Water Act discharge permit, covering discharges to surface water.</div>
+            <div><strong>Term:</strong> Five years.</div>
+          </div>
+        </details>
+      </td>
       <td>Mar 4, 2026 (signature)</td>
       <td>Mar 4, 2031 <span class="calc">(calc.)</span></td>
       <td>Sep 5, 2030 <span class="calc">(calc.)</span></td>
       <td>Stated: "five (5) years." <a href="https://www.epa.gov/system/files/documents/2026-03/finalme0022314permit-2026.pdf">PDF</a></td>
     </tr>
     <tr>
-      <td>Chapter 600 O-000300-91-J-R / L-T</td>
+      <td>
+        Marine oil terminal operating license
+        <details><summary>Expand for details</summary>
+          <div class="detail">
+            <div><strong>Technical name:</strong> Chapter 600 licenses O-000300-91-J-R (effective Sep 15, 2021) and O-000300-91-L-T (current transfer header, Jan 2025)</div>
+            <div><strong>Issued by:</strong> Maine DEP, Division of Petroleum Management</div>
+            <div><strong>What it is:</strong> State license required to operate a marine oil terminal (38 M.R.S. §545).</div>
+            <div><strong>Status:</strong> State law caps these licenses at 60 months. J-R would have ended no later than Sep 15, 2026 unless renewed. Successor term not published.</div>
+          </div>
+        </details>
+      </td>
       <td>Sep 15, 2021 (J-R)</td>
       <td><strong>No later than Sep 15, 2026</strong> <span class="calc">(calc.)</span> for J-R; <span class="tag warn">successor term not published</span></td>
       <td>Not published</td>
