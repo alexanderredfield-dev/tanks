@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>South Portland Terminal Geofence Review</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIINfQ3Ih3R7F9yG8Q0G8d5vB0r2g3x3j4=" crossorigin="">
+  <style>
+    html, body, #map { height: 100%; margin: 0; }
+    .legend { background: white; padding: 10px; line-height: 1.4; max-width: 320px; }
+    .legend strong { display: block; margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+const map = L.map('map').setView([43.638, -70.27], 13);
+const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19, attribution: '&copy; OpenStreetMap contributors'
+});
+const imagery = L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  { maxZoom: 19, attribution: 'Tiles &copy; Esri' }
+);
+osm.addTo(map);
+L.control.layers({ 'OpenStreetMap': osm, 'Esri World Imagery': imagery }).addTo(map);
+
+fetch('facilities.geojson')
+  .then(response => response.json())
+  .then(data => {
+    const circles = L.geoJSON(data, {
+      filter: feature => feature.geometry.type === 'Polygon',
+      style: feature => ({
+        color: '#b22222',
+        weight: 2,
+        fillColor: '#e9967a',
+        fillOpacity: 0.16
+      }),
+      onEachFeature: (feature, layer) => {
+        const p = feature.properties;
+        layer.bindPopup(`<strong>${p.name}</strong><br>Radius: ${p.radius_meters} m<br>Status: ${p.activation_status}`);
+      }
+    }).addTo(map);
+    const points = L.geoJSON(data, {
+      filter: feature => feature.geometry.type === 'Point',
+      pointToLayer: (feature, latlng) => L.marker(latlng),
+      onEachFeature: (feature, layer) => {
+        const p = feature.properties;
+        layer.bindPopup(`<strong>${p.name}</strong><br>${p.address}<br><br><strong>Review flags</strong><br>${(p.review_flags || []).join('<br>') || 'None'}`);
+      }
+    }).addTo(map);
+    map.fitBounds(circles.getBounds().pad(0.08));
+  });
+
+const legend = L.control({position: 'bottomleft'});
+legend.onAdd = () => {
+  const div = L.DomUtil.create('div', 'legend');
+  div.innerHTML = '<strong>Geofence review</strong>Circles are provisional 500 m radii. Confirm that the intended marine terminal and berth area are included before changing <code>activation_status</code> to <code>approved</code>.';
+  return div;
+};
+legend.addTo(map);
+</script>
+</body>
+</html>
